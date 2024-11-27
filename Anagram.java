@@ -43,6 +43,8 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
 		boolean result = true;
 		for (int i = 0; i < str1.length() ;i++) {
             if (charAmount(str1, str1.charAt(i)) != charAmount(str2, str1.charAt(i))) {
@@ -59,7 +61,8 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		String newString = "";
-		for (int i = 0; i < str.length() ;i++) {
+
+		for (int i = 0; i < (str.length()) ;i++) {
             char c = str.charAt(i); 
             if ((c >= 65) && (c <= 90)) {
             	c += 32;
